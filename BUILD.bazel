@@ -1,0 +1,22 @@
+genrule(
+    name = "hi",
+    srcs = [],
+    outs = ["foo.txt"],
+    cmd = "sleep 5 && echo 'Hello Satish!' >$@",
+)
+
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+  name = "hello",
+  srcs = ["src/hello.cpp"],
+)
+
+
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+cc_library(
+  name = "foo",
+  srcs = ["src/Foo.cpp"],
+  hdrs = ["inc/Foo.hpp"],
+)
